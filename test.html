@@ -16,7 +16,7 @@
     */
 function printCalendar () {
   // The "Calendar ID" from your calendar settings page, "Calendar Integration" secion:
-  var calendarId = 'YOUR_CALENDAR_ID@group.calendar.google.com';
+  var calendarId = '6lod8bd6gopmfnnbeq9b1hbu48@group.calendar.google.com';
 
   // 1. Create a project using google's wizzard: https://console.developers.google.com/start/api?id=calendar
   // 2. Create credentials:
@@ -29,7 +29,7 @@ function printCalendar () {
   // You can get a list of time zones from here: http://www.timezoneconverter.com/cgi-bin/zonehelp
   var userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   if (!userTimeZone) {
-    userTimeZone = 'America/New_York';
+    userTimeZone = 'Finland';
   }
 
   // Initializes the client with the API key and the Translate API.
