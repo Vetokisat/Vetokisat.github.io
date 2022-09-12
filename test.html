@@ -1,88 +1,23 @@
-<!doctype html>
-<html lang="fi">
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <!-- Meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Tuplapotti">
-    <meta name="theme-color" content="#bb2624">
-
-    <!-- CSS and files -->
-    <link rel="icon" type="image/png" href="/images/tuplapotti_favicon.ico"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	<link rel="stylesheet" href="/assets/css/main.css">
-	<link rel="stylesheet" href="/assets/css/tuplapotti.css">
-
-    <title>Tuplapotti</title>
+    <meta charset="UTF-8">
+    <title>Google Calendar API</title>
   </head>
-  <body class="d-flex align-items-center text-center text-light bg-dark" onload="changeDrink()">
-	<div class="container d-flex w-100 h-100 p-3 mx-auto flex-column fade-in">
-		<!--<header class="mb-auto">
-		    <nav class="navbar navbar-expand-sm fixed-top">
-              <a class="navbar-brand brand text-muted" href="#"><h3>Jampade</h3></a>
-              <button class="navbar-dark navbar-toggler navbar-expand-sm collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-        				<a class="nav-link active" id="nav-index" href="#" onclick="showFrontPage()">Etusivu</a>
-        			</li>
-        			<li class="nav-item">
-        			    <a class="nav-link" id="nav-tuplapotti" href="#" onclick="showTuplapotti()">Tuplapotti</a>
-        			</li>
-                </ul>
-              </div>
-            </nav>
-		</header>-->
-		
-		<div id="content" class="mt-auto mb-auto">
-		    <div id="index" class="container">
-		        <div class="row">
-		            <div class="col-md-12">
-		                <img id="tuplapotti" src="/images/tuplapotti.png" alt="Tuplapotti">
-    	            	<table id="drink"></table>
-    		            <audio id="myAudio" src="tuplausmusiikki.mp3" preload="auto"></audio>
-    		            <p><button id="newDrink" class="btn btn-light fade-in" onclick="changeDrink()">Uusi juoma</button></p>
-    		            <p><button id="playSong" class="btn btn-light fade-in" onclick="togglePlay()">Tunnelmamusiikkia</button></p>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		
-		<!--<div id="content" class="mt-auto mb-auto">
-		    <div id="index" class="container" style="display: unset;">
-		        <div class="row">
-		            <h1 id="hello-world" class="front-banner fade-in" onclick="setRandomColor()">Hello World!</h1>
-    	    	<p class="fade-in">Hiiojota halotajahalloo ja hyvää päivää</p>
-		        </div>
-		    </div>
-    		
-    		<div id="tuplapotti" class="container">
-    		    <div class="row">
-    		        <table id="drink"></table>
-    		            <button id="newDrink" class="btn btn-light fade-in" onclick="changeDrink()">Uusi juoma</button>
-    		            <audio id="myAudio" src="tuplausmusiikki.mp3" preload="auto"></audio>
-    		            <button id="playSong" class="btn btn-light fade-in" onclick="togglePlay()" style="display: none;">Tunnelmamusiikkia</button>
-    	            	
-    		    </div>
-    	    </div>
-		</div>
-		
-		<footer id="footer" class="mt-auto">
-			<p id="copyright" class="text-muted fade-in fixed-bottom">&copy; Jani Anttila</p>
-		</footer>-->
-		
-	</div>
-
-    <!-- Optional JavaScript -->
-    <script src="/assets/js/main_functions.js"></script>
-    <script src="/assets/js/tuplapotti.js"></script>
+  <body>
+    <h1>Events:</h1>
+    <div id="js-gcal-event">
+      <!-- SVG loader By Sam Herbert (@sherb). http://goo.gl/7AJzbL -->
+      <svg aria-hidden="true" width="35" height="35" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" stroke="#2c2a29"><g fill="none" fill-rule="evenodd" stroke-width="2"><circle cx="22" cy="22" r="1"><animate attributeName="r" begin="0s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"/><animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"/></circle><circle cx="22" cy="22" r="1"><animate attributeName="r" begin="-0.9s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"/><animate attributeName="stroke-opacity" begin="-0.9s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"/></circle></g></svg>
+      <p>Loading...</p>
+    </div>
+    <p>Solution from László L. L. on <a href="https://stackoverflow.com/a/56496854/908059">Stack Overflow</a>, modified to use lighter dependencies (MomentJS > DayJS, jQuery > vanilla javascript).</p>
     
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://cdn.polyfill.io/v3/polyfill.min.js?version=3.52.1&features=Array.prototype.forEach,console,Date.prototype.toISOString,document,Intl,Map,Promise,Set"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.23/plugin/localizedFormat.js"></script>
+    <script>dayjs.extend(window.dayjs_plugin_localizedFormat)</script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="google-calendar.js"></script>
   </body>
 </html>
